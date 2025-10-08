@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import ProductCard from "./ProductCard";
 
 /**
@@ -21,23 +22,26 @@ interface CategorySectionProps {
   id: string;           // ID HTML da seção (para navegação por âncora)
   title: string;        // Título da categoria
   products: Product[];  // Array de produtos da categoria
+  viewAllLink: string;  // Link para a página de listagem completa
 }
 
 /**
  * Componente de Seção de Categoria
  * Exibe uma categoria de produtos com título e grid de produtos
  */
-const CategorySection = ({ id, title, products }: CategorySectionProps) => {
+const CategorySection = ({ id, title, products, viewAllLink }: CategorySectionProps) => {
   return (
     <section id={id} className="py-12 md:py-16">
       <div className="container mx-auto px-4">
         {/* Cabeçalho da seção com título e botão "Ver Todos" */}
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-3xl md:text-4xl font-bold">{title}</h2>
-          <Button variant="ghost" className="group">
-            Ver Todos
-            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Button>
+          <Link to={viewAllLink}>
+            <Button variant="ghost" className="group">
+              Ver Todos
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Button>
+          </Link>
         </div>
         
         {/* Grid responsivo de produtos */}

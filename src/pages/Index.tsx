@@ -215,14 +215,14 @@ const Index = () => {
 
       {/* Seções de Categorias de Produtos */}
       {/* Cada seção exibe uma categoria específica de produtos */}
-      <CategorySection id="pelucias" title="Pelúcias" products={peluciaProducts} />
+      <CategorySection id="pelucias" title="Pelúcias" products={peluciaProducts} viewAllLink="/pelucias" />
       
       {/* Seção com fundo alternativo para contraste visual */}
       <div className="bg-secondary/30">
-        <CategorySection id="eletronicos" title="Eletrônicos" products={eletronicoProducts} />
+        <CategorySection id="eletronicos" title="Eletrônicos" products={eletronicoProducts} viewAllLink="/eletronicos"/>
       </div>
       
-      <CategorySection id="capas" title="Capas de Celular" products={capaProducts} />
+      <CategorySection id="capas" title="Capas de Celular" products={capaProducts} viewAllLink="/capas"/>
 
       {/* Rodapé da Página */}
       <footer className="bg-foreground text-background py-12 mt-16">
