@@ -178,11 +178,11 @@ const Index = () => {
             
             {/* Coluna da imagem com animação atrasada */}
             <div className="relative animate-fade-in animation-delay-200">
-              <img
+              {/* <img
                 src=""
-                alt="Banner da loja GaleriaTech"
+                alt=""
                 className="rounded-2xl shadow-custom-lg w-full"
-              />
+              /> */}
             </div>
           </div>
         </div>

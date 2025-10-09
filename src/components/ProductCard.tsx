@@ -2,6 +2,7 @@ import { ShoppingCart, Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { useCart } from "@/contexts/CartContext";
 
 /**
  * Interface que define as propriedades do componente ProductCard
@@ -22,6 +23,7 @@ interface ProductCardProps {
 const ProductCard = ({ id, name, price, image, rating, category }: ProductCardProps) => {
   // Hook para navegação programática
   const navigate = useNavigate();
+  const { addItem } = useCart();
   
   /**
    * Função que redireciona para a página de detalhes do produto
@@ -83,7 +85,9 @@ const ProductCard = ({ id, name, price, image, rating, category }: ProductCardPr
           className="w-full gradient-primary border-0 hover:opacity-90 transition-opacity"
           onClick={(e) => {
             e.stopPropagation(); // Impede que o clique no botão acione o clique do card
-            // Aqui seria adicionada a lógica de adicionar ao carrinho
+            //lógica de adicionar ao carrinho
+            addItem({ id, name, price, image, category });
+            
           }}
         >
           <ShoppingCart className="mr-2 h-4 w-4" />
